@@ -50,8 +50,8 @@ function createWebhookRequest(tag, paletteName, paletteLinkBase) {
 }
 
 const job = new CronJob(
-	'0 15 0 * * *',
-	async () => {
+    '0 0 8 * * *',
+    async () => {
         console.log("Requesting...");
         // Request the dailies page
         let response = await fetch("https://lospec.com/dailies/");
@@ -75,7 +75,7 @@ const job = new CronJob(
             console.error(e);
         }
     },
-	null,
-	true,
-	'Etc/UTC'
+    null,
+    true,
+    'Etc/UTC'
 );
